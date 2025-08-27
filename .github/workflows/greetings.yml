@@ -1,0 +1,11 @@
+name: First GitHub Action
+
+# Run this workflow on every push to the repo
+on: [push]
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print welcome message
+        run: echo "🎉 Hello Charan! Your GitHub Action is working!"
