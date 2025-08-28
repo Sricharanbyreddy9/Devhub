@@ -1,11 +1,18 @@
-name: First GitHub Action
+name: Run login.js on push
 
-# Run this workflow on every push to the repo
 on: [push]
 
 jobs:
-  say-hello:
+  run-login-js:
     runs-on: ubuntu-latest
     steps:
-      - name: Print welcome message
-        run: echo "🎉 Hello Charan! Your GitHub Action is working!"
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run login.js
+        run: node auth-service/login.js
